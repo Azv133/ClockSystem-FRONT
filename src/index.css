@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #F1F1F1;
+}
+
+.content-container{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
