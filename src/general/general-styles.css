@@ -77,3 +77,53 @@ hr{
     font-weight: 400;
     line-height: 18px; /* 150% */
 }
+
+.buttons-bar{
+    display: flex;
+    gap: 50px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(161, 161, 161, 0.75);
+}
+
+.selected-btn{
+    border-radius: 8px;
+    background: rgba(161, 161, 161, 0.20);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.dark-button{
+    border-radius: 8px;
+    background: #131313;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12.6px; /* 90% */
+}
+
+.dark-button label{
+    cursor: pointer;
+}
+
+.sm-btn{
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.m-btn{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

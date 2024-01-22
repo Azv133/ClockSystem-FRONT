@@ -1,0 +1,128 @@
+.App {
+    font-family: "Inter", sans-serif;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, 0%);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    text-align: center;
+    background-color: #484848;
+    color: var(--M3-sys-dark-on-surface, #E6E0E9);
+  }
+  
+  .clock::after {
+    background: #aaa;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #fff;
+  }
+  
+  .hour_hand {
+    position: absolute;
+    width: 6px;
+    height: 60px;
+    background: #181818;
+    top: 30%;
+    left: 49%;
+    transform-origin: bottom;
+  }
+  
+  .min_hand {
+    position: absolute;
+    width: 4px;
+    height: 80px;
+    background: #262626;
+    top: 22.5%;
+    left: 49%;
+    transform-origin: bottom;
+  }
+
+  .sec_hand {
+    position: absolute;
+    width: 2px;
+    height: 118px;
+    background: red;
+    top: 10.5%;
+    left: 50%;
+    transform-origin: bottom;
+  }
+  
+  .clock span {
+    position: absolute;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+  }
+  
+  .twelve {
+    top: 10px;
+    left: 46%;
+  }
+  
+  .one {
+    top: 10%;
+    right: 26%;
+  }
+  
+  .eleven {
+    top: 10%;
+    left: 26%;
+  }
+  
+  .two {
+    top: 25%;
+    right: 10%;
+  }
+  
+  .three {
+    right: 15px;
+    top: 46%;
+  }
+  
+  .four {
+    right: 35px;
+    top: 65%;
+  }
+  
+  .five {
+    right: 78px;
+    top: 80%;
+  }
+
+  .six {
+    bottom: 8px;
+    left: 50%;
+  }
+  
+  .seven {
+    left: 80px;
+    top: 80%;
+  }
+  
+  .eight {
+    left: 35px;
+    top: 65%;
+  }
+  
+  .nine {
+    left: 10px;
+    top: 46%;
+  }
+  
+  .ten{
+    top: 25%;
+    left: 10%;
+  }
+  
