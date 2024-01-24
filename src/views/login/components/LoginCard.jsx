@@ -1,10 +1,13 @@
-import { loginUser } from "../../helpers/loginHelper";
+import { loginUser } from "../../../helpers/loginHelper";
 import Swal from "sweetalert2";
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "../../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../../context/UserContext";
 
 export const LoginCard = () => {
   
+  const { user ,setUser } = useUser();
+
   const navigate = useNavigate();
 
   const formFields = {
@@ -22,7 +25,8 @@ export const LoginCard = () => {
         title: "Éxito!",
         text: result.message,
         icon: "success"
-      }).then((result) => {
+      }).then((res) => {
+        setUser({...result.user, qrStatus: result.qrStatus});
         navigate('/menu');
       });
     }else{

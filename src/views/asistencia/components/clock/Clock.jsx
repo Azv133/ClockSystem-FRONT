@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useClock } from '../../../hooks/useClock';
+import { useClock } from '../../../../hooks/useClock';
 
 import "./index.css"
 

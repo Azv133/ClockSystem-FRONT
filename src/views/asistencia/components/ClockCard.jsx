@@ -1,4 +1,4 @@
-import { useClock } from "../../hooks/useClock"
+import { useClock } from "../../../hooks/useClock"
 import { Clock } from "./clock/Clock"
 import "./comp-styles.css"
 
@@ -15,7 +15,7 @@ export const ClockCard = () => {
       </div>
       
       <div className="flex justify-center gap-3">
-        <div className="hour">{ time.getHours() }</div>
+        <div className="hour">{ time.getHours() < 10 ? `0${time.getHours()}` : time.getHours() }</div>
         <div className="dots">:</div>
         <div className="minute">
           { time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes() }

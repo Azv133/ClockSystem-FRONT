@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { LoginView } from './login/LoginView';
-import { AsistenciaView } from './asistencia/AsistenciaView';
-import { Clock } from './asistencia/components/clock/Clock';
-
+import { LoginView } from './views/login/LoginView';
+import { AsistenciaView } from './views/asistencia/AsistenciaView';
 
 export const MainRouter = () => {
   return (
@@ -10,7 +8,6 @@ export const MainRouter = () => {
         <Routes>
             <Route path='/' element={ <LoginView/> } />
             <Route path='/menu' element={ <AsistenciaView /> } />
-            <Route  path='/clock' element={ <Clock /> } />
         </Routes>
     </Router>
   )

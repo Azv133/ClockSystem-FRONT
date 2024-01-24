@@ -1,5 +1,9 @@
+import { useUser } from "../context/UserContext"
 
-export const ButtonsBar = () => {
+export const ButtonsBar = ({ qrModal }) => {
+
+  const { user } = useUser();
+
   return (
     <div className="buttons-bar">
       <div className="flex justify-start items-center gap-3">
@@ -11,9 +15,22 @@ export const ButtonsBar = () => {
         <button className="light-text selected-btn">Asistencia</button>
         <button className="light-text">Historial</button>
         <button className="light-text">Comunidad</button>
-        <button className="dark-button sm-btn">
-          <img src="public\svg\autentication.svg" alt="" />
-          <label>Autenticación</label>
+        <button className="dark-button sm-btn" onClick={qrModal}>
+          {
+            user && user.qrStatus
+            ? (
+              <>
+                <img src="public\svg\Bot.png" alt="" />
+                <label>Soporte</label>
+              </>
+            )
+            : (
+              <>
+                <img src="public\svg\autentication.svg" alt="" />
+                <label>Autenticación</label>
+              </>
+            )
+          }
         </button>
       </div>
     </div>

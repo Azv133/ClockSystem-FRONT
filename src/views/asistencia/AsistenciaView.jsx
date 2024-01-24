@@ -1,14 +1,59 @@
-import { ButtonsBar, SessionButtons } from '../general'
-import { ClockCard, MarkButtons, Table } from "./components"
-import { Footer } from '../general'
+import { ButtonsBar, SessionButtons } from '../../general'
+import { ClockCard, MarkButtons, QrModal, Table, VerifyModal } from "./components"
+import { Footer } from '../../general'
 import './styles.css'
+import { useEffect, useState } from 'react'
+import { useUser } from '../../context/UserContext'
+import { useNavigate } from 'react-router-dom'
+import { getQrLink } from '../../helpers/userHelper';
 
 export const AsistenciaView = () => {
+
+  const navigate = useNavigate();
+
+  const { user } = useUser();
+
+  console.log(user);
+  
+  useEffect(() => {
+    if(!user){ navigate('/') }
+  }, [])
+  
+  const [qrURL, setQrURL] = useState(null);
+  
+  const [showQRModal, setShowQRModal] = useState(false);
+
+  const [showVerModal, setShowVerModal] = useState(false);
+
+  const showQR = async() => {
+    const res = await getQrLink(user.correo, user.secret);
+    setQrURL(res.url);
+    setShowQRModal(true);
+  };
+
+  const hideQr = () => {
+    setShowQRModal(false);
+  }
+
+  const showVer = () => {
+    setShowVerModal(true);
+  }
+  
+  const hideVer = () => {
+    setShowVerModal(false);
+  };
+
   return (
     <>
+    { showVerModal && <VerifyModal hideVer={ hideVer } /> }
+    {
+      showQRModal && <QrModal qrModal={hideQr} qrURL={ qrURL } />
+    }
       <div className='content-container pt-4 px-5'>
           <div className="flex justify-between mb-11">
-            <ButtonsBar />
+            <ButtonsBar 
+              qrModal={showQR}
+            />
             <SessionButtons />
           </div>
 
@@ -30,7 +75,7 @@ export const AsistenciaView = () => {
 
             <div className='flex flex-col text-center w-1/2'>
               <h4 className='white-text pa'>Ricardo Manuel Torres Velasquez</h4>
-              <MarkButtons />
+              <MarkButtons showVer={ showVer } />
               <Table />
               <div className='flex justify-center items-end mt-10'>
                 <button className='his-btn'>
