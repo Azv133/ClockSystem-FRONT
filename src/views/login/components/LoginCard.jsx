@@ -1,11 +1,7 @@
-import { loginUser } from "../../helpers/loginHelper";
-import Swal from "sweetalert2";
-import { useForm } from "../../hooks/useForm";
-import { useNavigate } from "react-router-dom";
+import { useForm } from "../../../hooks/useForm";
+import { useLogin } from "../../../hooks/useLogin";
 
 export const LoginCard = () => {
-  
-  const navigate = useNavigate();
 
   const formFields = {
     email: '',
@@ -13,28 +9,8 @@ export const LoginCard = () => {
   };
 
   const {onInputChange, email, password} = useForm(formFields);
-
-  const login = async(email, password) => {
-    const result = await loginUser(email, password);
   
-    if(result.status){
-      Swal.fire({
-        title: "Éxito!",
-        text: result.message,
-        icon: "success"
-      }).then((result) => {
-        navigate('/menu');
-      });
-    }else{
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: result.message,
-      });
-    }
-  
-  };
-  
+  const { login } = useLogin();
 
   return (
     <div className="login-card">

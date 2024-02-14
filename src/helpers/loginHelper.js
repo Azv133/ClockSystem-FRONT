@@ -1,6 +1,7 @@
+import { API_ROUTE } from "./globalVariables";
 
 export const loginUser = async( correo, contraseña ) => {
-    const url = 'http://localhost:3001/user/login';
+    const url = `${API_ROUTE}/user/login`;
 
     const requestOptions = {
         method: 'POST',

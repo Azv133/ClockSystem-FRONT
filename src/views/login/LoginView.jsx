@@ -1,4 +1,4 @@
-import { Footer, Header } from "../general"
+import { Footer, Header } from "../../general"
 import { LoginCard } from "./components/LoginCard"
 import './styles.css';
 

@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"
+import { useUser } from "../context/UserContext";
 
 export const SessionButtons = () => {
+
+  const { user } = useUser();
 
   const navigate = useNavigate();
 
@@ -9,7 +12,7 @@ export const SessionButtons = () => {
     <div className="flex justify-end gap-4">
       <button className="dark-button m-btn">
         <img src="public\svg\user.svg" alt="" />
-        <label>Ricardo Manuel Torres Velasquez</label>
+        <label>{ user && user.nombres }</label>
       </button>
       <button
         className="dark-button m-btn"
