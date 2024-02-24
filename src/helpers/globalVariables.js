@@ -1,6 +1,6 @@
 export const ID_TIPO_MARCACION = 2;
 export const ID_TIPO_MARCACION_RFID = 1;
-export const API_ROUTE = 'https://asistencia-7qa1ewh0o-azv133s-projects.vercel.app/';
+export const API_ROUTE = 'https://asistencia-api.vercel.app';
 export const BROKER_URL = 'wss://74d65a7e8d8f40bf883d04cefcdbbb6d.s1.eu.hivemq.cloud:8884/mqtt';
 export const BROKER_PORT = '8884';
 export const BROKER_USERNAME = 'react-admin';
