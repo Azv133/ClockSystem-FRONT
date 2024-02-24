@@ -7,6 +7,8 @@ import { useUser } from '../../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { getQrLink } from '../../helpers/userHelper'
 import { useMarking } from '../../hooks/useMarking'
+import { RFIDModal } from './RFID/RFIDModal'
+import { RFIDModalSuccess } from './RFID/RFIDModalSuccess'
 
 export const AsistenciaView = () => {
 
@@ -26,6 +28,10 @@ export const AsistenciaView = () => {
 
   const [showVerModal, setShowVerModal] = useState(false);
 
+  const [RFID, setRFID] = useState(false);
+
+  const [sucess, setSucess] = useState(false)
+
   const showQR = async() => {
     const res = await getQrLink(user.correo, user.secret);
     setQrURL(res.url);
@@ -44,13 +50,49 @@ export const AsistenciaView = () => {
     setShowVerModal(false);
   };
 
+  const showRFID = () => {
+    setRFID(true);
+  }
+  
+  const hideRFID = () => {
+    setRFID(false);
+  };
+
+  const showSucess = () => {
+    setSucess(true);
+  }
+  
+  const hideSuccess = () => {
+    setSucess(false);
+  };
+
   const viewHistorial = () => {
     navigate('/historial');
   }
 
+
   return (
     <>
-    { showVerModal && <VerifyModal hideVer={ hideVer } markingKey={ markingKey } setMarkingkey={ setMarkingKey } /> }
+    { 
+      RFID && <RFIDModal 
+                hideRFID={ hideRFID }
+                showVer={ showVer }  
+                markingKey={ markingKey } 
+                setMarkingkey={ setMarkingKey }
+                showSuccess={ showSucess }
+              /> 
+    }
+    { 
+      sucess && <RFIDModalSuccess 
+                  hideSuccess={ hideSuccess }
+              /> 
+    }
+    { 
+      showVerModal && <VerifyModal 
+                        hideVer={ hideVer }
+                        markingKey={ markingKey }
+                        setMarkingkey={ setMarkingKey }
+                      /> }
     {
       showQRModal && <QrModal qrModal={hideQr} qrURL={ qrURL } />
     }
@@ -80,7 +122,7 @@ export const AsistenciaView = () => {
 
             <div className='flex flex-col text-center w-1/2'>
               <h4 className='white-text pa'>{ user && user.nombres }</h4>
-              <MarkButtons showVer={ showVer } markings={ markings } />
+              <MarkButtons showVer={ showRFID } markings={ markings } />
               <Table markings={ markings } />
               <div className='flex justify-center mt-10'>
                 <button 

@@ -6,8 +6,10 @@ import './styles.css'
 import { useEffect, useState } from 'react'
 import { useUser } from '../../context/UserContext'
 import { getGroupMarkings } from '../../helpers/markingHelper'
+import { useNavigate } from 'react-router-dom'
 
 export const HistorialView = () => {
+  const navigate = useNavigate();
   const [markings, setMarkings] = useState([]);
   const { user } = useUser();
 
@@ -19,6 +21,7 @@ export const HistorialView = () => {
   }
 
   useEffect(() => {
+    if(!user){ navigate('/') }
     getGmarkings();
     console.log(markings)
   }, [])

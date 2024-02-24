@@ -102,3 +102,56 @@ body {
     line-height: 14.4px; /* 90% */
     cursor: pointer;
 }
+
+.modal-card h3{
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px; /* 137.5% */
+}
+
+.modal-card h5{
+    color: #757575;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+}
+
+.modal-card h6{
+    color: #4F4F4F;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px; /* 225% */
+    margin: 0;
+    padding: 0;
+}
+
+.modalText{
+    color: #757575;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 18px;
+    margin: 0 !important;
+    padding: 0;
+}
+
+.modalText a{
+    color: #3F75FF;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.medium{
+    width: 456px !important;
+}
+
+.cardModal{
+    width: 190px !important;
+    height: 111px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
